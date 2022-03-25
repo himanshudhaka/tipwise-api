@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('postal');
-            $table->point('location');
+            $table->point('location')->nullable();
             $table->string('datetime')->nullable();
             $table->text('description');
             $table->text('assessment');

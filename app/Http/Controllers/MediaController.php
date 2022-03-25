@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Media;
+use Illuminate\Support\Facades\Storage;
 
 class MediaController extends Controller
 {
@@ -24,7 +26,18 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('img')) {
+            // Storage::disk('local')->delete('public/uploads/' . $user->photo);
+            // $filename = 'user_' . $user->id . '_photo_' . time() . '.' . $request->file('photo')->getClientOriginalExtension();
+            $filename = 'tipoff_' . $request->id . '_photo_' . time() . '.jpg';
+            $request->file('img')->storeAs('public/uploads', $filename);
+            Media::create([
+                'media' => $filename,
+                'tipoff_id' => $request->id
+            ]);
+            return response(['filename' => $filename]);
+        }
+        return false;
     }
 
     /**
@@ -36,6 +49,7 @@ class MediaController extends Controller
     public function show($id)
     {
         //
+        return Media::find($id);
     }
 
     /**

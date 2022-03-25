@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tipoff;
 
 class TipoffController extends Controller
 {
@@ -13,7 +14,7 @@ class TipoffController extends Controller
      */
     public function index()
     {
-        //
+        return Tipoff::all();
     }
 
     /**
@@ -24,7 +25,7 @@ class TipoffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Tipoff::create($request->all());
     }
 
     /**

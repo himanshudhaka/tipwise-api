@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\TipoffController;
+use App\Http\Controllers\ActionController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +28,8 @@ Route::get('/lol', function () {
     return 'sup';
 });
 Route::apiResource('people', PersonController::class);
+Route::apiResource('tipoffs', TipoffController::class);
+Route::apiResource('actions', ActionController::class);
+Route::apiResource('messages', MessageController::class);
+Route::apiResource('user', UserController::class);
+Route::apiResource('media', MediaController::class);

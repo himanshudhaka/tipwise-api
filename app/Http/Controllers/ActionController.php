@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Action;
 use Illuminate\Http\Request;
 
 class ActionController extends Controller
@@ -14,6 +15,7 @@ class ActionController extends Controller
     public function index()
     {
         //
+        return Action::all();
     }
 
     /**
@@ -25,6 +27,7 @@ class ActionController extends Controller
     public function store(Request $request)
     {
         //
+        return Action::create($request->all());
     }
 
     /**

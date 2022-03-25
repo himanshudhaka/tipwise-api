@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class MessageController extends Controller
 {
@@ -14,6 +15,7 @@ class MessageController extends Controller
     public function index()
     {
         //
+        return Message::all();
     }
 
     /**
@@ -25,6 +27,7 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
+        return Message::create($request->all());
     }
 
     /**
