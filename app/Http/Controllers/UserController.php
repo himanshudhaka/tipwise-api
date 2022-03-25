@@ -79,4 +79,9 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+    public function init(Request $request)
+    {
+        $id = $request->user()->id;
+        return $this->getUser($id);
+    }
 }
