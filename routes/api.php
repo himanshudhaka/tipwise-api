@@ -31,5 +31,10 @@ Route::apiResource('people', PersonController::class);
 Route::apiResource('tipoffs', TipoffController::class);
 Route::apiResource('actions', ActionController::class);
 Route::apiResource('messages', MessageController::class);
-Route::apiResource('user', UserController::class);
+Route::apiResource('users', UserController::class);
 Route::apiResource('media', MediaController::class);
+Route::post('/users/uuid', [UserController::class, 'getByUUID']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/init', [UserController::class, 'init']);
+});

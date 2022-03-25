@@ -19,7 +19,7 @@ return new class extends Migration
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->string('uid')->nullable();
+            $table->string('uuid')->nullable();
             $table->string('private_address')->nullable();
             $table->string('public_address')->nullable();
             $table->integer('trust_score')->nullable();
