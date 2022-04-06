@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('knowledge');
-            $table->string('state_crime');
+            $table->string('crime_state');
             $table->string('address');
             $table->string('city');
             $table->string('state');
@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('assessment');
             $table->integer('person_id')->nullable()->constrained();
             $table->enum('status', ['pending', 'approved', 'rejected', 'ignored']);
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class Tipoff extends Model
     protected $fillable = [
         'type',
         'knowledge',
-        'state_crime',
+        'crime_state',
         'address',
         'city',
         'state',
@@ -23,6 +23,6 @@ class Tipoff extends Model
         'assessment',
         'person_id',
         'status',
+        'user_id'
     ];
-
 }
