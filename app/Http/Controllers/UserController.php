@@ -67,21 +67,8 @@ class UserController extends Controller
         return User::destroy($id);
     }
 
-    public function getByUUID(Request $request)
+    public function getByUID(Request $request)
     {
-        $user = User::where('uuid', $request->uuid)->first();
-        if(!$user) {
-            return $user;
-        }
-        $token = $user->createToken('auth_token', ['admin'])->plainTextToken;
-        return response([
-            'token' => $token,
-            'user' => $user
-        ]);
-    }
-    public function init(Request $request)
-    {
-        $id = $request->user()->id;
-        return $this->getUser($id);
+        return User::where('uniqueId', $request['uid'])->first();
     }
 }

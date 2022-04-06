@@ -16,6 +16,12 @@ class TipoffController extends Controller
     {
         return Tipoff::all();
     }
+    public function indexByUser($id)
+    {
+        return $id;
+        // return Tipoff::where('user_id', 8)->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.
